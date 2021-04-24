@@ -25,7 +25,7 @@ RUN apk add --no-cache postgresql-libs
 
 RUN pip3 install --upgrade pip  
 
-RUN pip3 install -r requirements.txt
+RUN pip3 install -r ./api/requirements.txt
 
-RUN sed -i 's/\r//' start.sh
-RUN chmod +x start.sh
+RUN sed -i 's/\r//' ./api/start.sh
+RUN chmod +x ./api/start.sh
