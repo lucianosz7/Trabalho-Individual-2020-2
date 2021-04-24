@@ -14,10 +14,41 @@ services:
       - yarn_cache:/client/node_modules
     networks:
       - app-network
+  api:
+    container_name: api
+    restart: always
+    build: 
+      context: .
+      dockerfile: ./api/Dockerfile
+    ports: 
+      - "8000:8000"
+    volumes:
+      - ./api:/api
+    depends_on:
+      - db
+    command: >
+      sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    networks:
+        - app-network
 
+  db:
+    image: postgres:13-alpine
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=mydb
+      - POSTGRES_HOST=localhost
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
 networks:
   app-network:
     external: true
 
 volumes:
   yarn_cache:
+  postgres_data:
