@@ -15,4 +15,6 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: build
-        run: docker-compose up --build -d
+        run: |
+           docker network create app-network
+           docker-compose up --build -d
