@@ -8,6 +8,8 @@ services:
       dockerfile: ./client/Dockerfile
     ports:
       - 8080:8080
+    environment: 
+      CLIENT_ENV: ${CLIENT_ENV}
     entrypoint: ["sh", "./client/scripts/start.sh"]
     volumes:
       - .:/client
