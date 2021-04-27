@@ -18,3 +18,7 @@ jobs:
         run: |
            docker network create app-network
            docker-compose up --build -d
+
+      - name: test_client
+        run: docker-compose run -e "CLIENT_ENV=test" client
+
