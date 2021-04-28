@@ -4,12 +4,15 @@ set -e
 cd client/
 yarn install
 
-if ["$CLIENT_ENV" = "development"]
+if [ -n $CLIENT_ENV ]
 then
-  quasar dev
-elif ["$CLIENT_ENV" = "test"]
-then
-  yarn test:unit:ci
-else
-  echo "Unknown CLIENT_ENV value..."
+  if [ "$CLIENT_ENV" = "development" ]
+  then
+    quasar dev
+  elif [ "$CLIENT_ENV" = "test" ]
+  then
+    yarn test:unit:ci
+  else
+    echo "Unknown CLIENT_ENV value..."
+  fi
 fi
