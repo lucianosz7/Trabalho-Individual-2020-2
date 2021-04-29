@@ -34,6 +34,12 @@ jobs:
       working-directory: client
 
     - name: retrieve api coverage
+      env:
+        DATABASE_HOST: localhost
+        DATABASE_PORT: 5432
+        DATABASE_USER: myuser
+        DATABASE_PASSWORD: password
+        API_ENV: test
       run: |
         pip install -r ./requirements.txt
         python ./manage.py migrate
