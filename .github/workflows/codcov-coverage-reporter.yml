@@ -35,6 +35,7 @@ jobs:
 
     - name: retrieve api coverage
       run: |
+        pip install -r ./requirements.txt
         pip install coverage
         coverage run ./manage.py test
       working-directory: api
