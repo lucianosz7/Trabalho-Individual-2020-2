@@ -37,8 +37,8 @@ jobs:
       env:
         DATABASE_HOST: localhost
         DATABASE_PORT: 5432
-        DATABASE_USER: myuser
-        DATABASE_PASSWORD: password
+        DATABASE_USER: postgres
+        DATABASE_PASSWORD: postgres
         API_ENV: test
       run: |
         sudo apt-get -yqq install libpq-dev
