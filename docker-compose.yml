@@ -26,12 +26,13 @@ services:
     ports: 
       - "8000:8000"
     env_file: .env
+    environment: 
+      API_ENV: ${API_ENV}
     volumes:
       - ./api:/api
     depends_on:
       - db
-    command: >
-      sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    entrypoint: ["sh","./scripts/start.sh"]
     networks:
         - app-network
 

@@ -27,5 +27,5 @@ RUN pip3 install --upgrade pip
 
 RUN pip3 install -r ./api/requirements.txt
 
-RUN sed -i 's/\r//' ./api/start.sh
-RUN chmod +x ./api/start.sh
+RUN sed -i 's/\r//' ./api/scripts/start.sh
+RUN chmod +x ./api/scripts/start.sh
