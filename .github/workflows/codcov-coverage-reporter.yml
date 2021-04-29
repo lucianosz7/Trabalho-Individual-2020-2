@@ -36,7 +36,7 @@ jobs:
     - name: retrieve api coverage
       run: |
         pip install coverage
-        coverage run tests.py
+        coverage run ./manage.py test
       working-directory: api
 
     - name: Upload coverage to Codecov
