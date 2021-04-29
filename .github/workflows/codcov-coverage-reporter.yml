@@ -30,7 +30,7 @@ jobs:
         NODE_ENV: test
       run: |
         yarn install
-        yarn test
+        yarn test:unit:coverage
       working-directory: client
 
     - name: Upload coverage to Codecov
