@@ -22,3 +22,6 @@ jobs:
       - name: test_client
         run: docker-compose run -e "CLIENT_ENV=test" client
 
+      - name: test_api
+        run: docker-compose run -e "API_ENV=test" api
+
