@@ -33,6 +33,12 @@ jobs:
         yarn test:unit:coverage
       working-directory: client
 
+    - name: retrieve api coverage
+      run: |
+        pip install coverage
+        coverage run tests.py
+      working-directory: api
+
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
