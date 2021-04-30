@@ -11,7 +11,9 @@ module.exports = {
   },
 
   env: {
-    browser: true
+    browser: true,
+    amd: true,
+    node: true,
   },
 
   // Rules order is important, please avoid shuffling them
@@ -55,7 +57,7 @@ module.exports = {
   rules: {
     'prefer-promise-reject-errors': 'off',
     '@typescript/no-var-requires': 'off',
-
+    'no-unused-vars': 'off',
 
     // allow debugger during development only
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'

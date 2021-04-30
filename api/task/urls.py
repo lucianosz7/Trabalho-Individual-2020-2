@@ -1,4 +1,4 @@
-from django.urls import include, path
+from django.urls import include, path  # noqa: F401
 from .views import TaskCreate, TaskList, TaskDetail, TaskUpdate, TaskDelete
 
 urlpatterns = [
