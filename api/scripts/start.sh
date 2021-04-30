@@ -11,6 +11,9 @@ then
   elif [ "$API_ENV" = "test" ]
   then
     python ./manage.py test
+  elif [ "$API_ENV" = "style" ]
+  then
+    flake8
   else
     echo "Unknown API_ENV value..."
   fi
