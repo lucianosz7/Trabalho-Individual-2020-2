@@ -12,6 +12,9 @@ then
   elif [ "$CLIENT_ENV" = "test" ]
   then
     yarn test:unit:coverage
+  elif [ "$CLIENT_ENV" = "style" ]
+  then
+    yarn lint
   else
     echo "Unknown CLIENT_ENV value..."
   fi
