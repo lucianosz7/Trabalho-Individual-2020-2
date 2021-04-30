@@ -13,7 +13,7 @@ then
     python ./manage.py test
   elif [ "$API_ENV" = "style" ]
   then
-    flake8
+    flake8 --exclude ./task/migrations/*
   else
     echo "Unknown API_ENV value..."
   fi
