@@ -6,3 +6,4 @@ django-cors-headers
 coverage
 flake8
 gunicorn
+dj-database-url
