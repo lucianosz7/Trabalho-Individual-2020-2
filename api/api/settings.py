@@ -98,7 +98,7 @@ elif os.getenv('API_ENV') == 'production':
         }
     }
     DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-elif os.getenv('API_ENV') == 'development':
+elif os.getenv('API_ENV') == 'development' || os.getenv('API_ENV') == 'style':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
