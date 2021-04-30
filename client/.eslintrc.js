@@ -54,7 +54,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     'prefer-promise-reject-errors': 'off',
-    '@typescript/no-var-requires': 'off',
+    '@typescript/no-var-requires': 'warn',
 
 
     // allow debugger during development only
