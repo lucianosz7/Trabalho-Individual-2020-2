@@ -1,2 +1,2 @@
-release: cd api/ && ls -la
+release: bash ./scripts/release-tasks.sh
 web:  gunicorn api.wsgi
