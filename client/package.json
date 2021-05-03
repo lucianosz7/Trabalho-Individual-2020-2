@@ -22,6 +22,8 @@
   },
   "dependencies": {
     "@quasar/app": "^2.0.0",
+    "@quasar/quasar-app-extension-testing": "^1.0.3",
+    "@quasar/quasar-app-extension-testing-unit-jest": "^2.2.2",
     "@quasar/extras": "^1.0.0",
     "axios": "^0.21.1",
     "connect-history-api-fallback": "^1.6.0",
@@ -31,8 +33,6 @@
     "serve-static": "^1.14.1"
   },
   "devDependencies": {
-    "@quasar/quasar-app-extension-testing": "^1.0.3",
-    "@quasar/quasar-app-extension-testing-unit-jest": "^2.2.2",
     "babel-eslint": "^10.0.1",
     "codecov": "^3.8.1",
     "eslint": "^7.21.0",
