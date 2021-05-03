@@ -85,8 +85,8 @@ export default {
   },
 
   async beforeMount() {
-    console.log(API_PATH);
-    await axios.get(API_PATH + 'task/')
+
+    await axios.get('https://api-gces.herokuapp.com/task/')
     .then((res) => {
       this.items = res.data;
     })
@@ -98,7 +98,7 @@ export default {
   },
   methods: {
     async complete_task(task) {
-      await axios.delete(API_PATH + `/task/delete/${task.pk}/`)
+      await axios.delete(`https://api-gces.herokuapp.com/task/delete/${task.pk}/`)
       .then((res) => {
         this.items = this.items.filter((item) => item.pk !== task.pk);
         this.filterTasks();
@@ -112,7 +112,7 @@ export default {
       this.filteredItems = this.items.filter((item) => item.title.includes(this.text));
     },
     async createNewTask() {
-      await axios.post(API_PATH + 'task/create/', {
+      await axios.post('https://api-gces.herokuapp.com/task/create/', {
         title: this.title,
         description: this.description
       })
