@@ -70,6 +70,7 @@
 
 <script>
 import axios from 'axios';
+import API_PATH from '../utils/api-router';
 export default {
   name: "PageIndex",
   data() {
@@ -82,8 +83,10 @@ export default {
       description: "",
     };
   },
+
   async beforeMount() {
-    await axios.get('http://localhost:8000/task/')
+    console.log(process.env.NODE_ENV);
+    await axios.get(API_PATH + 'task/')
     .then((res) => {
       this.items = res.data;
     })
@@ -95,7 +98,7 @@ export default {
   },
   methods: {
     async complete_task(task) {
-      await axios.delete(`http://localhost:8000/task/delete/${task.pk}/`)
+      await axios.delete(API_PATH + `/task/delete/${task.pk}/`)
       .then((res) => {
         this.items = this.items.filter((item) => item.pk !== task.pk);
         this.filterTasks();
@@ -109,7 +112,7 @@ export default {
       this.filteredItems = this.items.filter((item) => item.title.includes(this.text));
     },
     async createNewTask() {
-      await axios.post('http://localhost:8000/task/create/', {
+      await axios.post(API_PATH + 'task/create/', {
         title: this.title,
         description: this.description
       })
