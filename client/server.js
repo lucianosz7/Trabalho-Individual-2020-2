@@ -6,7 +6,6 @@ const
 
 const app = express()
 
-console.log('API 2', process.env.VUE_APP_API_URL);
 app.use(history())
 app.use(serveStatic(__dirname + '/dist/spa'))
 app.listen(port)

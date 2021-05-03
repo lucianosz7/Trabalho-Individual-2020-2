@@ -85,10 +85,7 @@ export default {
   },
 
   async beforeMount() {
-    console.log('path', API_PATH);
-    console.log('API', process.env.VUE_APP_API_URL);
-    const url = process.env.VUE_APP_API_URL;
-    await axios.get(url + 'task/')
+    await axios.get(API_PATH + 'task/')
     .then((res) => {
       this.items = res.data;
     })
@@ -100,8 +97,7 @@ export default {
   },
   methods: {
     async complete_task(task) {
-      const url =  process.env.VUE_APP_API_URL;
-      await axios.delete(url + `/task/delete/${task.pk}/`)
+      await axios.delete(API_PATH + `/task/delete/${task.pk}/`)
       .then((res) => {
         this.items = this.items.filter((item) => item.pk !== task.pk);
         this.filterTasks();
@@ -115,8 +111,7 @@ export default {
       this.filteredItems = this.items.filter((item) => item.title.includes(this.text));
     },
     async createNewTask() {
-      const url =  process.env.VUE_APP_API_URL;
-      await axios.post(url + 'task/create/', {
+      await axios.post(API_PATH + 'task/create/', {
         title: this.title,
         description: this.description
       })
