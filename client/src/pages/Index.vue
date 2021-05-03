@@ -99,6 +99,7 @@ export default {
   },
   methods: {
     async complete_task(task) {
+      const url =  process.env.API_URL;
       await axios.delete(url + `/task/delete/${task.pk}/`)
       .then((res) => {
         this.items = this.items.filter((item) => item.pk !== task.pk);
@@ -113,6 +114,7 @@ export default {
       this.filteredItems = this.items.filter((item) => item.title.includes(this.text));
     },
     async createNewTask() {
+      const url =  process.env.API_URL;
       await axios.post(url + 'task/create/', {
         title: this.title,
         description: this.description
