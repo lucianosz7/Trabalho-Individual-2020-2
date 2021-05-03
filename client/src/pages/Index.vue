@@ -85,8 +85,9 @@ export default {
   },
 
   async beforeMount() {
-    console.log('API', process.env.NODE_ENV);
-    await axios.get(process.env.API_URL + 'task/')
+    console.log('API', process.env.API_URL);
+    const url = process.env.API_URL;
+    await axios.get(url + 'task/')
     .then((res) => {
       this.items = res.data;
     })
@@ -98,7 +99,7 @@ export default {
   },
   methods: {
     async complete_task(task) {
-      await axios.delete(process.env.API_URL + `/task/delete/${task.pk}/`)
+      await axios.delete(url + `/task/delete/${task.pk}/`)
       .then((res) => {
         this.items = this.items.filter((item) => item.pk !== task.pk);
         this.filterTasks();
@@ -112,7 +113,7 @@ export default {
       this.filteredItems = this.items.filter((item) => item.title.includes(this.text));
     },
     async createNewTask() {
-      await axios.post(process.env.API_URL + 'task/create/', {
+      await axios.post(url + 'task/create/', {
         title: this.title,
         description: this.description
       })
