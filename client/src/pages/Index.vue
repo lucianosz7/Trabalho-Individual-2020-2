@@ -85,6 +85,7 @@ export default {
   },
 
   async beforeMount() {
+    console.log('path', API_PATH);
     console.log('API', process.env.VUE_APP_API_URL);
     const url = process.env.VUE_APP_API_URL;
     await axios.get(url + 'task/')
