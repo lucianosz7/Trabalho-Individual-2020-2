@@ -85,6 +85,7 @@ export default {
   },
 
   async beforeMount() {
+    console.log(API_PATH);
     await axios.get(API_PATH + 'task/')
     .then((res) => {
       this.items = res.data;
