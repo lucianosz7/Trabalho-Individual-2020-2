@@ -85,7 +85,7 @@ export default {
   },
 
   async beforeMount() {
-    console.log(process.env.NODE_ENV);
+    console.log('API', process.env.NODE_ENV);
     await axios.get(API_PATH + 'task/')
     .then((res) => {
       this.items = res.data;
