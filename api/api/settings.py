@@ -105,7 +105,7 @@ elif os.getenv('API_ENV') == 'development' or os.getenv('API_ENV') == 'style':
             'NAME': 'postgres',
             'USER': 'postgres',
             'PASSWORD': 'postgres',
-            'HOST': 'postgres',
+            'HOST': 'db',
             'PORT': '5432',
         }
     }
