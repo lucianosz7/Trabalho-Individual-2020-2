@@ -1,1 +1,1 @@
-web: yarn quasar serve
+web: yarn install && yarn global add @quasar/cli && yarn quasar serve
